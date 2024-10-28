@@ -1,6 +1,6 @@
 // production
 const SERVER_URL = 'https://giva-deploy-backend.onrender.com';
-const SERVER_PORT = '10000';
+const SERVER_PORT = '5000';
 
 // local
 // const SERVER_URL = 'https://localhost';
