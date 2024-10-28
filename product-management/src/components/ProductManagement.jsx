@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../config/api';
 
 function ProductManagement() {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,7 @@ function ProductManagement() {
       setLoading(true);
       setError('');
 
-      const res = await fetch('http://localhost:5000/api/products', {
+      const res = await fetch(`${API_URL}/api/products`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -88,8 +89,8 @@ function ProductManagement() {
 
     try {
       const url = editingId 
-        ? `http://localhost:5000/api/products/${editingId}`
-        : 'http://localhost:5000/api/products';
+        ? `${API_URL}/api/products/${editingId}`
+        : `${API_URL}/api/products`;
 
       const response = await fetch(url, {
         method: editingId ? 'PUT' : 'POST',
@@ -141,7 +142,7 @@ function ProductManagement() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const response = await fetch(`${API_URL}/api/products/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

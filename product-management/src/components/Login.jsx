@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_URL } from '../config/api';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const Login = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/login', {
+            const response = await fetch(`${API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -146,7 +147,7 @@ const Login = () => {
                         </button>
                     </div>
 
-                    <div className="text-sm text-center">
+                    {/* <div className="text-sm text-center">
                         <p className="text-gray-600">
                             Default Admin Login:
                             <br />
@@ -154,7 +155,7 @@ const Login = () => {
                             <br />
                             Password: admin123
                         </p>
-                    </div>
+                    </div> */}
                 </form>
             </div>
         </div> 
