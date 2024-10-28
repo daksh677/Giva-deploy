@@ -6,11 +6,12 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.DB_PORT || 5000;
+const frontendurl = process.env.FRONTEND_URL;
 
 // CORS Configuration
 const corsOptions = {
-    origin: '*',
+    origin: `${frontendurl}`,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
