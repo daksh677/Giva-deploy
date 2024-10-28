@@ -12,6 +12,7 @@ function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log(`${API_URL}`);
             const response = await fetch(`${API_URL}/api/auth/signup`, {
                 method: 'POST',
                 headers: {
